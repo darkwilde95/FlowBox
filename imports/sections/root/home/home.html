@@ -1,0 +1,17 @@
+<template name="home">
+  <h1>Bienvenido a FlowBox!</h1>
+    {{#if currentUser}}
+      <p>Hola {{MyCurrentUser}}</p>
+      <button type="button" id="logout">Cerrar Sesion</button>
+    {{else}}
+      <br>
+        {{>yield 'loginRegion'}}
+      <br>
+        {{>yield 'registerRegion'}}
+      <br>
+    {{/if}}
+</template>
+
+<template name="load">
+
+</template>
