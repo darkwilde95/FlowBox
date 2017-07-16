@@ -3,11 +3,11 @@ import { Accounts } from 'meteor/accounts-base';
 import './register.html';
 
 Template.register.events({
-  'click #submit'(event){
+  'click #reg_submit'(event){
     event.preventDefault();
-    var name = $('#name').val();
-    var username = $('#username').val();
-    var password = $('#password').val();
+    var name = $('#reg_name').val();
+    var username = $('#reg_username').val();
+    var password = $('#reg_password').val();
 
     Accounts.createUser({
       username: username,

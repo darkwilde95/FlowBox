@@ -3,10 +3,10 @@ import { Meteor } from 'meteor/meteor';
 import './login.html';
 
 Template.login.events({
-  'click #submit'(event){
+  'click #log_submit'(event){
     event.preventDefault();
-    var username = $('#username').val();
-    var password = $('#password').val();
+    var username = $('#log_username').val();
+    var password = $('#log_password').val();
     Meteor.loginWithPassword(username, password, function(Error){
       if(Error){
         console.log(Error);
