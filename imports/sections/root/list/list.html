@@ -1,0 +1,20 @@
+<template name="list">
+  <h3>Estas son tus pinches cajas:</h3>
+    <table class="table table-striped table-hover table-bordered">
+      <tr>
+        <td>Nombre</td><td>Efectivo</td>
+      </tr>
+      {{#each cash}}
+        {{> cashinfo}}
+      {{/each}}
+    </table>
+    {{#if lis_addCashVisible}}
+      <button type="button" id="lis_addCash">Añadir pinche cajita</button>
+    {{/if}}
+</template>
+
+<template name="cashinfo">
+  <tr>
+    <td>{{cas_name}}</td><td>{{cas_amount}}</td>
+  </tr>
+</template>

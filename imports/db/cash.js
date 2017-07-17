@@ -11,8 +11,8 @@ cash.schema = new SimpleSchema({
 });
 
 if(Meteor.isServer){
-  Meteor.publish('Cash', function(){
-    return cash.find({});
+  Meteor.publish('Cash', function(useid){
+    return cash.find({cas_use_id: useid});//
   });
 }
 

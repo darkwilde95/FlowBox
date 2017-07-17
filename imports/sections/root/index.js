@@ -1,19 +1,22 @@
 //new urls.js
 import { Meteor } from 'meteor/meteor';
+import { Cash } from '/imports/db/cash.js';
 import './templates.js';
 
 Router.route('/', {
   name: 'home',
   layoutTemplate: 'home',
-  loadingTemplate: 'load',
   yieldRegions: {
     'login': {to: 'loginRegion'},
-    'register': {to: 'registerRegion'}
+    'register': {to: 'registerRegion'},
+    'list': {to: 'listRegion'},
+    'summary': {to: 'summaryRegion'}
   },
-  waitOn: function(){
-    return function(){
-      return !Meteor.loggingIn();
-    }
+  subscriptions: function(){
+    this.subscribe('Cash', Meteor.userId()).wait();
+  },
+  data: function(){
+    return {cash: Cash.find({})};
   }
 });
 

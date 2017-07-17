@@ -1,17 +1,26 @@
 <template name="home">
-  <h1>Bienvenido a FlowBox!</h1>
-    {{#if currentUser}}
-      <p>Hola {{MyCurrentUser}}</p>
-      <button type="button" id="logout">Cerrar Sesion</button>
-    {{else}}
-      <br>
-        {{>yield 'loginRegion'}}
-      <br>
-        {{>yield 'registerRegion'}}
-      <br>
-    {{/if}}
-</template>
-
-<template name="load">
-
+  {{#unless loggingIn}}
+    <div class="container">
+      <h1>Bienvenido a FlowBox!</h1>
+        {{#if currentUser}}
+          <p>Hola {{MyCurrentUser}}</p>
+          <button type="button" id="logout">Cerrar Sesion</button>
+          <br>
+          <div class="row">
+            <div class="col-md-4">
+              {{>yield 'listRegion'}}
+            </div>
+            <div class="col-md-8">
+              {{>yield 'summaryRegion'}}
+            </div>
+          </div>
+        {{else}}
+          <br>
+            {{>yield 'loginRegion'}}
+          <br>
+            {{>yield 'registerRegion'}}
+          <br>
+        {{/if}}
+    </div>
+  {{/unless}}
 </template>
