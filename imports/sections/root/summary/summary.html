@@ -1,3 +1,21 @@
 <template name="summary">
-  <h4>Hola, soy la summary</h4>
+  {{#if hasTransactionHelper}}
+    <h4>Estas son tus Transacciones mas recientes:</h4>
+    <table class="table table-bordered table-striped">
+      <tr>
+        <td>Fecha</td><td>Caja</td><td>Acción</td><td>Descripción</td><td>Valor</td>
+      </tr>
+      {{#each transaction}}
+        {{> transactioninfo}}
+      {{/each}}
+    </table>
+  {{else}}
+    <h4>No has hecho ninguna transacción</h4>
+  {{/if}}
+</template>
+
+<template name="transactioninfo">
+  <tr>
+    <td>{{tra_date}}</td><td>{{tra_cas_name}}</td><td>{{tra_action}}</td><td>{{tra_description}}</td><td>{{tra_value}}</td>
+  </tr>
 </template>

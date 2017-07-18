@@ -1,17 +1,17 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var'
 import { Cash } from '/imports/db/cash.js';
-import './list.html';
+import './cashList.html';
 
 var lis_addCash_state = new ReactiveVar("disabled");
 
-Template.list.helpers({
+Template.cashList.helpers({
   lis_addCash_disabler: function(){
     return lis_addCash_state.get();
   }
 });
 
-Template.list.events({
+Template.cashList.events({
   'keyup #lis_cashName, keypress #lis_cashName'(event){
     var newCashName = $('#lis_cashName').val();
     if(newCashName == ""){
@@ -39,5 +39,11 @@ Template.list.events({
     }else{
       alert("El nombre ya ha sido usado")
     }
-  },
+  }
+});
+
+Template.cashInfo.events({
+  'click tr'(event){
+    Router.go('myCash', {cas_name: this.cas_name});
+  }
 });

@@ -1,6 +1,7 @@
 //new urls.js
 import { Meteor } from 'meteor/meteor';
 import { Cash } from '/imports/db/cash.js';
+import { Transaction } from '/imports/db/transaction.js';
 import './templates.js';
 
 Router.route('/', {
@@ -9,49 +10,21 @@ Router.route('/', {
   yieldRegions: {
     'login': {to: 'loginRegion'},
     'register': {to: 'registerRegion'},
-    'list': {to: 'listRegion'},
+    'cashList': {to: 'cashListRegion'},
     'summary': {to: 'summaryRegion'}
   },
   subscriptions: function(){
     this.subscribe('Cash', Meteor.userId()).wait();
+    this.subscribe('Transaction', Meteor.userId()).wait();
   },
   data: function(){
-    //var hasCash = (cash > 0) ? true: false;
     var cashCursor = Cash.find({})
     var hasCash = cashCursor.count();
-    return {'cash': cashCursor,
-            'hasCashHelper': hasCash};
+    var transactionCursor = Transaction.find({}, {limit: 10});
+    var hasTransaction = transactionCursor.count();
+    return {cash: cashCursor,
+            hasCashHelper: hasCash,
+            transaction: transactionCursor,
+            hasTransactionHelper: hasTransaction};
   }
 });
-
-/*
-Router.route("/sectionName/routePath", {
-
-  name: 'sectionName_routeName',
-
-  template:"templateName",
-
-  layoutTemplate: "templateName",
-
-  subscriptions: function(){
-    this.subscribe("collection").wait();
-  },
-
-  yieldRegions:{
-    "templateName": {to: "regionName"}
-  },
-
-  data:function(){
-     return {helperName: value};
-  },
-
-  action: function(){
-
-  },
-
-  waitOn:function(){
-
-  }
-
-});
-*/
