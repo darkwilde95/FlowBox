@@ -33,9 +33,9 @@ Template.list.events({
 
       Cash.schema.validate(newCash);
       Meteor.call('addNewCash', newCash);
-      lis_addCash_state.set("");
+      lis_addCash_state.set("disabled");
       $('#lis_cashName').val("");
-      
+
     }else{
       alert("El nombre ya ha sido usado")
     }
