@@ -1,20 +1,25 @@
 <template name="list">
-  <h3>Estas son tus pinches cajas:</h3>
+  {{#if hasCashHelper}}
+    <h4>Estas son tus cajas:</h4>
     <table class="table table-striped table-hover table-bordered">
       <tr>
-        <td>Nombre</td><td>Efectivo</td>
+        <td> </td><td>Nombre</td><td>Efectivo</td>
       </tr>
       {{#each cash}}
         {{> cashinfo}}
       {{/each}}
     </table>
-    {{#if lis_addCashVisible}}
-      <button type="button" id="lis_addCash">Añadir pinche cajita</button>
-    {{/if}}
+  {{else}}
+    <h4>No tienes cajas. Empieza por agregar una!</h4>
+  {{/if}}
+    <form method="post">
+      <input type="text" id="lis_cashName" style="width: 185px;" autocomplete="off" placeholder="Nombre para la pinche cajita">
+      <input type="submit" class="btn btn-success" id="lis_addNewCash" {{lis_addCash_disabler}} value="Agregar">
+    </form>
 </template>
 
 <template name="cashinfo">
-  <tr>
-    <td>{{cas_name}}</td><td>{{cas_amount}}</td>
+  <tr class="clickable-row">
+    <td><input type="checkbox" id="{{cas_id}}"></td><td>{{cas_name}}</td><td>{{cas_totalAmount}}</td>
   </tr>
 </template>

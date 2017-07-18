@@ -16,7 +16,11 @@ Router.route('/', {
     this.subscribe('Cash', Meteor.userId()).wait();
   },
   data: function(){
-    return {cash: Cash.find({})};
+    //var hasCash = (cash > 0) ? true: false;
+    var cashCursor = Cash.find({})
+    var hasCash = cashCursor.count();
+    return {'cash': cashCursor,
+            'hasCashHelper': hasCash};
   }
 });
 

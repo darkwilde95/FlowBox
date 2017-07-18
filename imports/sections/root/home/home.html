@@ -1,9 +1,8 @@
 <template name="home">
   {{#unless loggingIn}}
     <div class="container">
-      <h1>Bienvenido a FlowBox!</h1>
         {{#if currentUser}}
-          <p>Hola {{MyCurrentUser}}</p>
+          <h1>Hola {{MyCurrentUser}}</h1>
           <button type="button" id="logout">Cerrar Sesion</button>
           <br>
           <div class="row">
@@ -15,6 +14,7 @@
             </div>
           </div>
         {{else}}
+          <h1>Bienvenido a Flowbox!</h1>
           <br>
             {{>yield 'loginRegion'}}
           <br>
