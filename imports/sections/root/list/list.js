@@ -12,7 +12,7 @@ Template.list.helpers({
 });
 
 Template.list.events({
-  'keyup #lis_cashName'(event){
+  'keyup #lis_cashName, keypress #lis_cashName'(event){
     var newCashName = $('#lis_cashName').val();
     if(newCashName == ""){
       lis_addCash_state.set("disabled")
@@ -23,15 +23,19 @@ Template.list.events({
   'click #lis_addNewCash'(event){
     event.preventDefault();
     var newCashName = $('#lis_cashName').val();
-    if(Cash.findOne({cas_use_id: Meteor.userId(), cas_name: newCashName}) == undefined){
+    var finding = Cash.findOne({cas_use_id: Meteor.userId(), cas_name: newCashName});
+
+    if(finding == undefined){
       const newCash = {
         cas_use_id: Meteor.userId(),
         cas_name: newCashName
       };
+
       Cash.schema.validate(newCash);
       Meteor.call('addNewCash', newCash);
       lis_addCash_state.set("");
       $('#lis_cashName').val("");
+      
     }else{
       alert("El nombre ya ha sido usado")
     }

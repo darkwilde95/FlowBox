@@ -3,13 +3,13 @@ import { Meteor } from 'meteor/meteor';
 import './home.html';
 
 Template.home.helpers({
-  MyCurrentUser(){
+  MyCurrentUser: function(){
     return Meteor.user().profile.name;
   }
 });
 
 Template.home.events({
-  'click #logout'(event){
+  'click #hom_logout'(event){
     Meteor.logout(function(Error){
       if(Error){
         alert(Error);
