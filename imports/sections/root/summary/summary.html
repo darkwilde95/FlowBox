@@ -2,12 +2,16 @@
   {{#if hasTransactionHelper}}
     <h4>Estas son tus Transacciones mas recientes:</h4>
     <table class="table table-bordered table-striped">
-      <tr>
-        <td>Fecha</td><td>Caja</td><td>Acción</td><td>Descripción</td><td>Valor</td>
-      </tr>
-      {{#each transaction}}
-        {{> transactioninfo}}
-      {{/each}}
+      <thead>
+        <tr>
+          <th>Fecha</th><th>Caja</th><th>Acción</th><th>Descripción</th><th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each transaction}}
+          {{> transactioninfo}}
+        {{/each}}
+      </tbody>
     </table>
   {{else}}
     <h4>No has hecho ninguna transacción</h4>

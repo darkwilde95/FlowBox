@@ -5,7 +5,7 @@ import { Transaction } from '/imports/db/transaction.js';
 import './templates.js';
 
 Router.route('/', {
-  name: 'home',
+  name: 'root',
   layoutTemplate: 'home',
   yieldRegions: {
     'login': {to: 'loginRegion'},

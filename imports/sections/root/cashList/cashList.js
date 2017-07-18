@@ -44,6 +44,6 @@ Template.cashList.events({
 
 Template.cashInfo.events({
   'click tr'(event){
-    Router.go('myCash', {cas_name: this.cas_name});
+    Router.go('cashDetail', {cas_name: this.cas_name});
   }
 });

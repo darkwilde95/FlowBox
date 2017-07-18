@@ -4,16 +4,20 @@
       <div class="col-md-4">
         <h1>{{casNameHelper}}</h1>
       </div>
-      <div class="col-md-8">
-        <h4>Saldo: {{totalAmount casNameHelper}}</h4>
+      <div class="col-8 col-md-auto" style="text-align: right;">
+        <h3>Saldo: ${{totalAmount casNameHelper}}</h3>
       </div>
     </div>
     <div class="row">
-      {{>yield 'doTransactionRegion'}}
+      <div class="col-md-12">
+        {{>yield 'doTransactionRegion'}}
+      </div>
     </div>
     <br>
     <div class="row">
-      {{>yield 'transactionListRegion'}}
+      <div class="col-md-12">
+        {{>yield 'transactionListRegion'}}
+      </div>
     </div>
   </div>
 </template>

@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import './templates.js'
 
 Router.route('/:cas_name',{
-  name: 'myCash',
+  name: 'cashDetail',
   layoutTemplate: 'myCash',
   subscriptions: function(){
     this.subscribe('Cash', Meteor.userId());

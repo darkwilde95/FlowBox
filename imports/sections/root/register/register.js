@@ -21,6 +21,6 @@ Template.register.events({
         console.log(Error);
       }
     });
-    Router.go('home');
+    Router.go('root');
   }
 });

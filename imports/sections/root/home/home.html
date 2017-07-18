@@ -1,26 +1,27 @@
 <template name="home">
   {{#unless loggingIn}}
     <div class="container">
-        {{#if currentUser}}
+      {{#if currentUser}}
+        <div class="row">
           <h1>Hola {{MyCurrentUser}}</h1>
           <button type="button" id="hom_logout">Cerrar Sesion</button>
-          <br>
-          <div class="row">
-            <div class="col-md-4">
-              {{>yield 'cashListRegion'}}
-            </div>
-            <div class="col-md-8">
-              {{>yield 'summaryRegion'}}
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            {{>yield 'cashListRegion'}}
           </div>
-        {{else}}
-          <h1>Bienvenido a FlowCash!</h1>
-          <br>
-            {{>yield 'loginRegion'}}
-          <br>
-            {{>yield 'registerRegion'}}
-          <br>
-        {{/if}}
+          <div class="col-md-8">
+            {{>yield 'summaryRegion'}}
+          </div>
+        </div>
+      {{else}}
+        <h1>Bienvenido a FlowCash!</h1>
+        <br>
+          {{>yield 'loginRegion'}}
+        <br>
+          {{>yield 'registerRegion'}}
+        <br>
+      {{/if}}
     </div>
   {{/unless}}
 </template>
