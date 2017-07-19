@@ -1,3 +1,12 @@
 <template name="doTransaction">
-  <h3>Hola, soy el asistente de transacciones</h3>
+  <h4>Realiza tu transacción:</h4>
+  <form class="form-inline" method="post">
+    <select class="form-control" id="doT_action">
+      <option value="Depositar">Depositar</option>
+      <option value="Retirar">Retirar</option>
+    </select>
+    <textarea class="form-control" id="doT_description" placeholder="Descripción"></textarea>
+    <input class="form-control" type="number" id="doT_value" placeholder="Cantidad" autocomplete="off">
+    <input class="btn btn-primary" type="submit" id="doT_submit" value="Realizar">
+  </form>
 </template>

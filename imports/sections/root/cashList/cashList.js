@@ -44,6 +44,12 @@ Template.cashList.events({
 
 Template.cashInfo.events({
   'click tr'(event){
-    Router.go('cashDetail', {cas_name: this.cas_name});
+    var finding = Cash.findOne({cas_use_id: Meteor.userId(), cas_name: this.cas_name})
+
+    if (finding == undefined){
+      Router.go('notFound')
+    }else{
+      Router.go('cashDetail', {cas_name: this.cas_name});
+    }
   }
 });
