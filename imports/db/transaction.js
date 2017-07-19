@@ -6,9 +6,7 @@ transaction = new Mongo.Collection('transaction', {idGeneration:'STRING'});
 transaction.schema = new SimpleSchema({
   tra_use_id: {type: String},
   tra_cas_name: {type: String},
-  tra_date: {type: Date,
-             optional: true,
-             defaultValue: new Date()},
+  tra_date: {type: String},
   tra_action: {type: String},
   tra_description: {type: String},
   tra_value: {type: Number}
