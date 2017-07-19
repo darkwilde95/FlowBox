@@ -16,7 +16,11 @@ transaction.schema = new SimpleSchema({
 
 if(Meteor.isServer){
   Meteor.publish("Transaction", function(userId, traName){
-    return transaction.find({tra_use_id: userId, tra_cas_name: traName});
+    if (traName == null){
+      return transaction.find({tra_use_id: userId})
+    }else{
+      return transaction.find({tra_use_id: userId, tra_cas_name: traName});
+    }
   });
 }
 

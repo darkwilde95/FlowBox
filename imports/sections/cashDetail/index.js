@@ -2,6 +2,8 @@
 import { Meteor } from 'meteor/meteor';
 import './templates.js'
 
+casName = ''
+
 Router.route('/:cas_name',{
   name: 'cashDetail',
   layoutTemplate: 'myCash',
@@ -14,9 +16,11 @@ Router.route('/:cas_name',{
     'transactionList': {to: 'transactionListRegion'}
   },
   data: function(){
-    return {casNameHelper: this.params.cas_name};
+    casName = this.params.cas_name
+    return {casNameHelper: casName};
   }
 })
+
 /*
 Router.route("/sectionName/routePath", {
   name: 'sectionName_routeName',

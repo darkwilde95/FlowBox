@@ -15,7 +15,7 @@ Router.route('/', {
   },
   subscriptions: function(){
     this.subscribe('Cash', Meteor.userId()).wait();
-    this.subscribe('Transaction', Meteor.userId()).wait();
+    this.subscribe('Transaction', Meteor.userId(), null).wait();
   },
   data: function(){
     var cashCursor = Cash.find({})

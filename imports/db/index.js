@@ -1,2 +1,2 @@
-import './transaction.js';
-import './cash.js';
+import '/imports/db/cash.js';
+import '/imports/db/transaction.js'
