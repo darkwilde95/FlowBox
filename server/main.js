@@ -18,5 +18,9 @@ Meteor.methods({
                 {$inc: {cas_totalAmount: transaction.tra_value}})
       Transaction.insert(transaction)
     }
+  },
+  removeCash: function(casName, userId){
+    Transaction.remove({tra_cas_name: casName, tra_use_id: userId})
+    Cash.remove({cas_name: casName, cas_use_id: userId})
   }
 })
