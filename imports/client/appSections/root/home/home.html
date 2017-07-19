@@ -1,0 +1,35 @@
+<template name="home">
+  {{#if loggingIn}}
+    {{> load}}
+  {{else}}
+    <div class="container">
+      {{#if currentUser}}
+        <div class="row">
+          <div class="col-md-10">
+            <h1>Hola {{MyCurrentUser}}</h1>
+          </div>
+          <div class="col-md-2" style="text-align: right;">
+            <br>
+            <button class="btn btn-lg btn-secundary" type="button" id="hom_logout">Cerrar Sesion</button>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-md-4">
+            {{>yield 'cashListRegion'}}
+          </div>
+          <div class="col-md-8">
+            {{>yield 'summaryRegion'}}
+          </div>
+        </div>
+      {{else}}
+        <h1>Bienvenido a FlowCash!</h1>
+        <br>
+          {{>yield 'loginRegion'}}
+        <br>
+          {{>yield 'registerRegion'}}
+        <br>
+      {{/if}}
+    </div>
+  {{/if}}
+</template>

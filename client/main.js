@@ -1,1 +1,1 @@
-import '/imports/sections';
+import '/imports/client';

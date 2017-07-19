@@ -1,0 +1,22 @@
+<template name="doTransaction">
+  <h4>Realiza tu transacción:</h4>
+  <form method="post">
+    <div class="row">
+      <div class="col-md-2">
+        <select class="form-control" id="doT_action">
+          <option value="Depositar">Depositar</option>
+          <option value="Retirar">Retirar</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <textarea class="form-control" id="doT_description" placeholder="Descripción"></textarea>
+      </div>
+      <div class="col-md-3">
+        <input class="form-control" type="number" id="doT_value" placeholder="Cantidad" autocomplete="off">
+      </div>
+      <div class="col-md-2">
+        <input class="btn btn-primary" type="submit" id="doT_submit" {{doT_submit_disabler}} value="Realizar">
+      </div>
+    </div>
+  </form>
+</template>

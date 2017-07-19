@@ -1,0 +1,19 @@
+<template name="transactionList">
+  {{#if hasTransactionHelper}}
+    <h4>Transacciones realizadas sobre esta caja:</h4>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Fecha</th><th>Caja</th><th>Acción</th><th>Descripción</th><th>Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each cashTransaction}}
+          {{> transactionInfo}} <!--from /imports/client/generalTemplates/transactionInfo.html-->
+        {{/each}}
+      </tbody>
+    </table>
+  {{else}}
+    <h4>No has hecho ninguna transacción sobre esta caja</h4>
+  {{/if}}
+</template>

@@ -1,0 +1,31 @@
+<template name="myCash">
+  <div class="container">
+    <div class="row">
+      <br>
+      <div class="col-md-12">
+        <a href="{{pathFor 'root'}}">Regresar</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h1>{{casNameHelper}} <small id="myC_removeCash" class="text-primary" style="font-size: 14px; cursor: pointer;">Eliminar caja</small></h1>
+      </div>
+      <div class="col-8 col-md-auto" style="text-align: right;">
+        <h3>Saldo: ${{totalAmount casNameHelper}}</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        {{>yield 'doTransactionRegion'}}
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        {{>yield 'transactionListRegion'}}
+      </div>
+    </div>
+  </div>
+</template>
