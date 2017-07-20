@@ -37,17 +37,12 @@ Template.doTransaction.events({
     }else if(action == 'Retirar' && finding.cas_totalAmount < value){
       alert('No tienes fondos suficientes')
     }else{
-      var date = new Date()
-      var day = (date.getDate() < 10)? '0' + date.getDate(): date.getDate()
-      var month = (date.getMonth() < 9)? '0' + (date.getMonth() + 1): (date.getMonth() + 1)
-      var year = date.getFullYear()
-      var hour = (date.getHours() < 10)? '0' + date.getHours(): date.getHours()
-      var minute = (date.getMinutes() < 10)? '0' + date.getMinutes(): date.getMinutes()
+      var date = new Date().getTime()
 
       const newTransaction = {
         tra_use_id: Meteor.userId(),
         tra_cas_name: casName,
-        tra_date: day + '/' + month + '/' + year + ' - ' + hour + ':' + minute,
+        tra_date: date,
         tra_action: action,
         tra_description: description,
         tra_value: Number(value)

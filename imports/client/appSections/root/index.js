@@ -20,7 +20,7 @@ Router.route('/', {
   data: function(){
     var cashCursor = Cash.find({})
     var hasCash = cashCursor.count()
-    var transactionCursor = Transaction.find({}, {limit: 10})
+    var transactionCursor = Transaction.find({}, {sort: {tra_date: -1}, limit: 50})
     var hasTransaction = transactionCursor.count()
     return {cash: cashCursor,
             hasCashHelper: hasCash,

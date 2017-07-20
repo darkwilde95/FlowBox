@@ -9,11 +9,17 @@
       </thead>
       <tbody>
         {{#each generalTransaction}}
-          {{> transactionInfo}} <!--from /imports/client/generalTemplates/transactionInfo.html-->
+          {{> generalTransactionInfo}}
         {{/each}}
       </tbody>
     </table>
   {{else}}
     <h4>No has hecho ninguna transacción</h4>
   {{/if}}
+</template>
+
+<template name="generalTransactionInfo">
+  <tr>
+    <td>{{traDate tra_date}}</td><td>{{tra_cas_name}}</td><td>{{tra_action}}</td><td>{{tra_description}}</td><td>{{tra_value}}</td>
+  </tr>
 </template>

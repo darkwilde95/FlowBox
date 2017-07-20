@@ -19,7 +19,8 @@ Router.route('/:cas_name',{
   },
   data: function(){
     casName = this.params.cas_name
-    var transactionCursor = Transaction.find({tra_cas_name: this.params.cas_name}, {limit: 10})
+    var transactionCursor = Transaction.find({tra_cas_name: this.params.cas_name},
+                                             {sort: {tra_date: -1}})
     var hasTransaction = transactionCursor.count()
     return {casNameHelper: casName,
             cashTransaction: transactionCursor,
@@ -42,22 +43,3 @@ Router.route('/:cas_name',{
     }
   }
 })
-
-/*
-Router.route("/sectionName/routePath", {
-  name: 'sectionName_routeName',
-  template:"templateName",
-  layoutTemplate: "templateName",
-  subscriptions: function(){
-    this.subscribe("collection").wait()
-  },
-  yieldRegions:{
-    "templateName": {to: "regionName"}
-  },
-  data:function(){
-     return {helperName: value}
-  },
-  action: function(){},
-  waitOn:function(){}
-})
-*/

@@ -4,16 +4,22 @@
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-          <th>Fecha</th><th>Caja</th><th>Acción</th><th>Descripción</th><th>Valor</th>
+          <th>Fecha</th><th>Acción</th><th>Descripción</th><th>Valor</th>
         </tr>
       </thead>
       <tbody>
         {{#each cashTransaction}}
-          {{> transactionInfo}} <!--from /imports/client/generalTemplates/transactionInfo.html-->
+          {{> cashTransactionInfo}}
         {{/each}}
       </tbody>
     </table>
   {{else}}
     <h4>No has hecho ninguna transacción sobre esta caja</h4>
   {{/if}}
+</template>
+
+<template name="cashTransactionInfo">
+  <tr>
+    <td>{{traDate tra_date}}</td><td>{{tra_action}}</td><td>{{tra_description}}</td><td>{{tra_value}}</td>
+  </tr>
 </template>
